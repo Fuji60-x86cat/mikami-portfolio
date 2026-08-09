@@ -12,10 +12,9 @@
 
     <!--
       外部リソースは Google Fonts と Font Awesome (cdnjs) のみ許可。
-      アバター画像を外部ホスティングにアップロードしたら、img-src にそのホストのドメインを追加してください（例: img-src 'self' https://i.imgur.com;）。
-      現時点ではホスト先未定のため https: 全般を暫定許可しています。ホストが決まり次第、ドメインを限定するのを推奨します。
+      アバター画像はリポジトリ内（images/avatar.jpg）に置くようにしたため、img-src は 'self' のみに絞っています。
     -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <title>三上風侍朗 - Links</title>
@@ -195,11 +194,10 @@
     <div class="container">
         <!--
           プロフィールアイコン（ラテアート画像）。
-          外部画像ホスティングにアップロード後、下記の src をそのURLに置き換えてください。
-          （元コードの C:\Users\... というローカルパスは、Windowsのユーザー名がソースに残ってしまうため削除しました）
+          リポジトリの images/avatar.jpg を読み込んでいます。アップロード時のファイル名を変えた場合はここも合わせて変更してください。
         -->
         <div class="avatar-container">
-            <img src="https://example.com/path-to-your-avatar.jpg" alt="Cafe Logo / Latte Art">
+            <img src="images/avatar.jpg" alt="Cafe Logo / Latte Art">
         </div>
 
         <div class="links-label">ポートフォリオ</div>
