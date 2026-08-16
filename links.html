@@ -4,16 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--
-      検索エンジンへのインデックス方針は未定とのことなので、ひとまず未設定にしています。
-      ポートフォリオ本体と揃えて noindex にしたい場合は、下記のコメントアウトを外してください。
-      <meta name="robots" content="noindex, nofollow">
-    -->
-
-    <!--
-      外部リソースは Google Fonts と Font Awesome (cdnjs) のみ許可。
-      アバター画像はリポジトリ内（images/avatar.jpg）に置くようにしたため、img-src は 'self' のみに絞っています。
-    -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -22,11 +12,7 @@
     <!-- フォントの読み込み (Playfair Display for headings, Lora for body) -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
 
-    <!--
-      アイコン用のFont Awesome。
-      SRI(整合性検証)ハッシュは https://www.srihash.org/ に上記URLを貼り付けると自動生成できます。
-      生成した値を integrity="sha512-xxxxxxxx..." の形で追加してください（誤ったハッシュ値を書くと読み込み自体が失敗するため、必ず実際に生成した値を使ってください）。
-    -->
+ 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <style>
@@ -37,12 +23,12 @@
         }
 
         body {
-            /* 温かみのあるクリーム色の背景とコーヒーの染みのようなテクスチャ */
-            background-color: #fdfcf0;
+            /* 爽やかなスカイブルーの背景と空気を模した微かなグラデーション */
+            background-color: #e3f2fd;
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(161, 130, 98, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(161, 130, 98, 0.05) 0%, transparent 50%);
-            color: #5d4037; /* ダークブラウンのテキスト */
+                radial-gradient(circle at 20% 30%, rgba(187, 222, 251, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(129, 212, 250, 0.4) 0%, transparent 50%);
+            color: #0d47a1; /* ディープブルーのテキスト */
             font-family: 'Lora', serif;
             min-height: 100vh;
             display: flex;
@@ -54,7 +40,7 @@
             overflow-x: hidden;
         }
 
-        /* 背景の有機的な装飾（元の円をコーヒーの染みに見立てる） */
+        /* 背景の有機的な装飾（青空に浮かぶ柔らかな光や雲のイメージ） */
         .bg-decoration {
             position: absolute;
             top: 0;
@@ -64,8 +50,8 @@
             max-width: 800px;
             height: 100%;
             background-image: 
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><path d="M200 10C90.5 10 1 99.5 1 209s89.5 199 199 199 199-89.5 199-199S309.5 10 200 10zm0 382C99.4 392 18 309.6 18 209S99.4 26 200 26s182 82.4 182 183-82.4 183-182 183z" fill="%23a18262" fill-opacity="0.06"/></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><path d="M150 10C71.6 10 8 73.6 8 152s63.6 142 142 142 142-63.6 142-142S228.4 10 150 10zm0 268C80.8 278 24 221.2 24 152S80.8 26 150 26s126 56.8 126 126-56.8 126-126 126z" fill="%23a18262" fill-opacity="0.08"/></svg>');
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><path d="M200 10C90.5 10 1 99.5 1 209s89.5 199 199 199 199-89.5 199-199S309.5 10 200 10zm0 382C99.4 392 18 309.6 18 209S99.4 26 200 26s182 82.4 182 183-82.4 183-182 183z" fill="%2329b6f6" fill-opacity="0.08"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><path d="M150 10C71.6 10 8 73.6 8 152s63.6 142 142 142 142-63.6 142-142S228.4 10 150 10zm0 268C80.8 278 24 221.2 24 152S80.8 26 150 26s126 56.8 126 126-56.8 126-126 126z" fill="%2329b6f6" fill-opacity="0.06"/></svg>');
             background-repeat: no-repeat;
             background-position: -100px -100px, 400px 200px;
             pointer-events: none;
@@ -82,14 +68,14 @@
             z-index: 1;
         }
 
-        /* プロフィール画像 (カフェのアイコン) */
+        /* プロフィール画像 */
         .avatar-container {
             width: 100px;
             height: 100px;
             border-radius: 50%;
             overflow: hidden;
             border: 3px solid #ffffff; /* 白い縁取り */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(13, 71, 161, 0.15);
             margin-bottom: 24px;
             background-color: #ffffff;
         }
@@ -105,7 +91,7 @@
             font-family: 'Lora', serif;
             font-size: 13px;
             letter-spacing: 1.5px;
-            color: #a18262; /* アクセントカラー */
+            color: #0288d1; /* アクセントカラー（明るめの青） */
             margin-bottom: 8px;
             text-transform: uppercase;
             font-weight: 600;
@@ -116,13 +102,13 @@
             font-size: 42px;
             font-weight: 700;
             margin-bottom: 8px;
-            color: #3e2723; /* 濃いブラウン */
+            color: #0d47a1; /* 濃いブルー */
         }
 
         .username {
             font-family: 'Lora', serif;
             font-size: 16px;
-            color: #6d4c41;
+            color: #1565c0;
             margin-bottom: 6px;
             font-weight: 600;
         }
@@ -130,7 +116,7 @@
         .status {
             font-family: 'Lora', serif;
             font-size: 14px;
-            color: #8d6e63;
+            color: #1976d2;
             margin-bottom: 48px;
             font-style: italic;
         }
@@ -148,20 +134,20 @@
             align-items: center;
             justify-content: space-between;
             background-color: #ffffff; /* 白いカード */
-            border: 1px solid #e0e0e0;
+            border: 1px solid #b3e5fc;
             padding: 20px 24px;
             border-radius: 16px; /* 大きな角丸 */
             text-decoration: none;
-            color: #5d4037;
+            color: #0d47a1;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 2px 6px rgba(13, 71, 161, 0.04);
         }
 
         .link-card:hover {
-            background-color: #fff8e1; /* ホバーで薄い黄色 */
-            border-color: #ffe082;
+            background-color: #f1f8fe; /* ホバーで薄いブルー */
+            border-color: #81d4fa;
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 6px 12px rgba(13, 71, 161, 0.1);
         }
 
         .link-left {
@@ -176,26 +162,23 @@
 
         .link-arrow {
             font-size: 16px;
-            color: #bdbdbd;
+            color: #90caf9;
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .link-card:hover .link-arrow {
-            color: #5d4037;
+            color: #0d47a1;
             transform: translateX(3px); /* ホバーで矢印が少し動く */
         }
     </style>
 </head>
 <body>
 
-    <!-- 背景の装飾（コーヒーの染み風） -->
+    <!-- 背景の装飾 -->
     <div class="bg-decoration"></div>
 
     <div class="container">
-        <!--
-          プロフィールアイコン（ラテアート画像）。
-          リポジトリの images/avatar.jpg を読み込んでいます。アップロード時のファイル名を変えた場合はここも合わせて変更してください。
-        -->
+        <!-- プロフィールアイコン -->
         <div class="avatar-container">
             <img src="images/avatar.png" alt="Cafe Logo / Latte Art">
         </div>
@@ -239,11 +222,7 @@
                 <div class="link-arrow"><i class="fa-solid fa-arrow-right"></i></div>
             </a>
 
-            <!--
-              5. ポートフォリオサイト本体
-              元コードでは note.com への重複リンクになっていました。
-              ホスティング先が決まったら、下記 href を本体サイトのURLに置き換えてください。
-            -->
+            <!-- 5. ポートフォリオサイト本体 -->
             <a href="https://fuji60-x86cat.github.io/mikami-portfolio/" target="_blank" rel="noopener noreferrer" class="link-card">
                 <div class="link-left">
                     <span class="link-title">三上風侍朗のポートフォリオサイト</span>
